@@ -13,7 +13,12 @@ class Player():
     def print_inventory(self):
         for item in self.inventory:
             print(item, '\n')
-
+    def flee(self, tile):
+        """Moves the player randomly to an adjacent tile"""
+        available_moves = tile.adjacent_moves()
+        r = random.randint(0, len(available_moves) - 1)
+        self.do_action(available_moves[r])
+             
 def move(self, dx, dy):
     self.location_x += dx
     self.location_y += dy

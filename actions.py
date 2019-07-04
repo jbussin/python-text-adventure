@@ -1,5 +1,5 @@
-import Player
-import items, enemies, actions, world
+import player, items, enemies, actions, world
+
 class Action():
     def __init__(self, method, name, hotkey, **kwargs):
         self.method = method
@@ -34,3 +34,5 @@ class ViewInventory(Action):
 class Attack(Action):
     def __init__(self, enemy):
         super().__init__(method=Player.attack, name="Attack", hotkey='a', enemy=enemy)
+
+        super().__init__(method=Player.flee, name="Flee", hotkey='f', tile=tile)
