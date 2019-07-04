@@ -41,7 +41,7 @@ def attack(self, enemy):
     max_dmg = 0
     for i in self.inventory:
         if isinstance(i, items.Weapon):
-            if i.damage &amp;gt; max_dmg:
+            if i.damage > max_dmg:
                 max_dmg = i.damage
                 best_weapon = i
  
