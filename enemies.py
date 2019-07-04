@@ -16,3 +16,11 @@ class Beefo(Enemy):
 class BigJim(Enemy):
     def __init__(self):
         super().__init__(name="Big Jim", hp=30, damage=15)
+
+class GiantSpider(Enemy):
+    def __init__(self):
+        super().__init__(name="Giant Spider", hp=10, damage=2)
+ 
+class Ogre(Enemy):
+    def __init__(self):
+        super().__init__(name="Ogre", hp=30, damage=15)
