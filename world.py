@@ -33,6 +33,4 @@ with open('resources/map.txt', 'r') as f:
 for y in range(len(rows)):
      cols = rows[y].split('\t')
 
-print(rows)
-print(cols)
-
+print(starting_position)
