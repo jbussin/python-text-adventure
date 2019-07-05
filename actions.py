@@ -53,6 +53,9 @@ class Attack(Action):
     def __init__(self, enemy):
         super().__init__(method=Player.attack, name="Attack", hotkey='a', enemy=enemy)
 
+class PickUp(Action):
+    def __init__(self, item):
+        super().__init__(method=Player.pick_up, name="Pick Up", hotkey='p', item=item)
 
 class Flee(Action):
     def __init__(self, tile):

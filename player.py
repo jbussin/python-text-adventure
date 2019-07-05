@@ -62,3 +62,17 @@ class Player():
         r = random.randint(0, len(available_moves) - 1)
         self.do_action(available_moves[r])
 
+    def pick_up(self, item):
+        best_weapon = None
+        max_dmg = 0
+        for i in self.inventory:
+            if isinstance(i, items.Weapon):
+                if i.damage > max_dmg:
+                    max_dmg = i.damage
+                    best_weapon = i
+
+        print("You picked up {}.".format(item.name))
+        item.hp -= best_weapon.damage
+        if not item.is_alive():
+            print("You already picked up {}!".format(item.name))
+

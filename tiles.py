@@ -75,20 +75,28 @@ class LootRoom(MapTile):
 
     def add_loot(self, the_player):
         the_player.inventory.append(self.item)
+        item.hp = 0
+        
 
     def modify_player(self, the_player):
         self.add_loot(the_player)
+        
 
 
 class FindDaggerRoom(LootRoom):
-    def __init__(self, x, y):
+    def __init__(self, x, y, item):
         super().__init__(x, y, items.Dagger())
 
     def intro_text(self):
-        return """
-        You notice something shiny in the corner.
-        It's a dagger! You pick it up.
-        """
+    
+        if self.item.is_alive():
+            return """
+            A giant spider jumps down from its web in front of you!
+            """
+        else:
+            return """
+            The corpse of a dead spider rots on the ground.
+            """
 
 
 class Find5GoldRoom(LootRoom):
