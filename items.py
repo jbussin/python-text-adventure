@@ -7,7 +7,7 @@ class Item():
         self.value = value
     
     def __str__(self):
-        return "{}\n====\n{}\nValue: {} \n".format(self.name, self.description, self.value )
+        return "{}\n=====\n{}\nValue: {} \n".format(self.name, self.description, self.value )
 
 
 class Gold(Item):
