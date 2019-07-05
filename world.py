@@ -25,14 +25,6 @@ def load_tiles():
             if tile_name == 'StartingRoom':
                 global starting_position
                 starting_position = (x, y)
-                _world[(x, y)] = None if tile_name == '' else getattr(__import__('tiles'), tile_name)(x, y)
+            _world[(x, y)] = None if tile_name == '' else getattr(__import__('tiles'), tile_name)(x, y)
 
-with open('resources/map.txt', 'r') as f:
-     rows = f.readlines()
-     x_max = len(rows[0].split('\t'))
-for y in range(len(rows)):
-     cols = rows[y].split('\t')
-
-print(rows)
-print(cols)
 
