@@ -1,28 +1,14 @@
+"""
+A simple text adventure designed as a learning experience for new programmers.
+"""
+__author__ = 'Phillip Johnson'
 import world
 from player import Player
- 
-def play():
-    world.load_tiles()
-    player = Player()
-    while player.is_alive() and not player.victory:
-        #Loop begins here
 
-        class LeaveCaveRoom(MapTile):
-            def intro_text(self):
-                return """
-                You see a bright light in the distance...
-                ... it grows as you get closer! It's sunlight!
-        
-                Victory is yours!
-                """
-        
-            def modify_player(self, player):
-                player.victory = True
-               
+
 def play():
     world.load_tiles()
     player = Player()
-    #These lines load the starting room and display the text
     room = world.tile_exists(player.location_x, player.location_y)
     print(room.intro_text())
     while player.is_alive() and not player.victory:
@@ -39,6 +25,7 @@ def play():
                 if action_input == action.hotkey:
                     player.do_action(action, **action.kwargs)
                     break
-                    
+
+
 if __name__ == "__main__":
     play()
