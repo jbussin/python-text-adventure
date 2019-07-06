@@ -74,21 +74,25 @@ class LootRoom(MapTile):
         super().__init__(x, y)
 
     def add_loot(self, the_player):
-        the_player.inventory.append(self.item)
-
-    def modify_player(self, the_player):
         self.add_loot(the_player)
-
+        self.item.hp = 0
+        
 
 class FindDaggerRoom(LootRoom):
     def __init__(self, x, y):
-        super().__init__(x, y, items.Dagger())
+            super().__init__(x, y, items.Dagger())
+            
 
     def intro_text(self):
-        return """
-        You notice something shiny in the corner.
-        It's a dagger! You pick it up.
-        """
+        if self.item.hp > 0:
+            return """
+            You notice something shiny in the corner.
+            It's a dagger! You pick it up.
+            """
+        else:
+            return """
+            You looted the dagger.
+                """
 
 
 class Find5GoldRoom(LootRoom):
