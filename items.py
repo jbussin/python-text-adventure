@@ -50,4 +50,4 @@ class Gold(Weapon):
                          description="A round coin with {} stamped on the front.".format(str(self.amt)),
                          value=self.amt,
                          damage = 0,
-                         on_floor = self.on_floor)
+                         on_floor = self.on_floor) 

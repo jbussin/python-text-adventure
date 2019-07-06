@@ -74,7 +74,7 @@ class LootRoom(MapTile):
         super().__init__(x, y)
 
     def add_loot(self, the_player):
-        if self.item.on_floor == 'yes' or self.item.on_floor == 'starter item':
+        if self.item.on_floor == 'yes':
             the_player.inventory.append(self.item)
 
     def modify_player(self, the_player):
@@ -94,12 +94,12 @@ class FindDaggerRoom(LootRoom):
         if self.item.on_floor == 'yes':
             return """
             You notice something shiny in the corner.
-            It's a dagger! You pick it up.
-            """
+            It's a {}! You pick it up.
+            """.format(self.item.name)
         else:
             return """
-            You already have looted the dagger here.
-                """
+            You already have looted the {} here.
+                """.format(self.item.name)
 
 
 class Find5GoldRoom(LootRoom):
