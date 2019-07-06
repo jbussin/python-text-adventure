@@ -6,7 +6,7 @@ __author__ = 'Phillip Johnson'
 
 class Player():
     def __init__(self):
-        self.inventory = [items.Gold(15), items.Rock()]
+        self.inventory = [items.Gold(15, 'no'), items.Rock()]
         self.hp = 100
         self.location_x, self.location_y = world.starting_position
         self.victory = False
