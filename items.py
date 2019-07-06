@@ -19,9 +19,6 @@ class Weapon(Item):
         self.damage = damage
         self.hp = hp
         super().__init__(name, description, value)
-    
-    def is_alive(self):
-        return self.hp > 0
 
     def __str__(self):
         return "{}\n=====\n{}\nValue: {}\nDamage: {}\nPicked up: {}".format(self.name, self.description, self.value, self.damage, self.hp)
@@ -33,7 +30,7 @@ class Rock(Weapon):
                          description="A fist-sized rock, suitable for bludgeoning.",
                          value=0,
                          damage=5,
-                         hp=0)
+                         hp='starter item')
 
 
 class Dagger(Weapon):
@@ -42,7 +39,7 @@ class Dagger(Weapon):
                          description="A small dagger with some rust. Somewhat more dangerous than a rock.",
                          value=10,
                          damage=10,
-                         hp = 1)
+                         hp = 'no')
 
 
 class Gold(Item):

@@ -74,9 +74,16 @@ class LootRoom(MapTile):
         super().__init__(x, y)
 
     def add_loot(self, the_player):
+        if self.item.hp == 'no':
+            the_player.inventory.append(self.item)
+
+    def modify_player(self, the_player):
         self.add_loot(the_player)
-        self.item.hp = 0
+        self.item.hp = 'yes'
         
+    
+        
+
 
 class FindDaggerRoom(LootRoom):
     def __init__(self, x, y):
@@ -84,7 +91,7 @@ class FindDaggerRoom(LootRoom):
             
 
     def intro_text(self):
-        if self.item.hp > 0:
+        if self.item.hp == 'no':
             return """
             You notice something shiny in the corner.
             It's a dagger! You pick it up.
